@@ -4,6 +4,7 @@ import 'package:kush_gods/utils/routes_pages/pages_name.dart';
 class SplashController extends GetxController {
   @override
   void onInit() {
+    print("erere");
     _startTimer();
     super.onInit();
   }

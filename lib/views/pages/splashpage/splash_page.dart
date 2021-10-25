@@ -23,8 +23,9 @@ class _SplashPageState extends State<SplashPage> {
         body: Center(
             child: Image.asset(
       AppImages.APP_LOGO,
-      width: 200,
+      width: 350,
       height: 200,
+      alignment: Alignment.center,
     )));
   }
 }
