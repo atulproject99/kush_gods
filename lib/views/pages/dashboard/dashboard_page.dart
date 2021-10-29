@@ -57,7 +57,7 @@ class DashboardPage extends GetView<DashboardController> {
             controller: controller.navigationController,
             selectedPos: controller.currentIndex.value,
             normalIconColor: Colors.black,
-            circleSize: 65,
+            barHeight: 60,
             iconsSize: 25,
             barBackgroundColor: Colors.white,
             circleStrokeWidth: 0,

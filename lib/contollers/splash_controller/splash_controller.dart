@@ -11,7 +11,7 @@ class SplashController extends GetxController {
 
   _startTimer() {
     Future.delayed(Duration(seconds: 3), () {
-      Get.toNamed(MyPagesName.dashBoard);
+      Get.offNamed(MyPagesName.dashBoard);
     });
   }
 }

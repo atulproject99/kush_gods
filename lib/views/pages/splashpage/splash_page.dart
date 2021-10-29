@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:kush_gods/consts/app_images.dart';
 import 'package:kush_gods/contollers/splash_controller/splash_controller.dart';
@@ -14,6 +15,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
+    //SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
     Get.find<SplashController>();
   }
 
@@ -27,5 +29,12 @@ class _SplashPageState extends State<SplashPage> {
       height: 200,
       alignment: Alignment.center,
     )));
+  }
+
+  @override
+  void dispose() {
+    /* SystemChrome.setEnabledSystemUIOverlays(
+        [SystemUiOverlay.top, SystemUiOverlay.bottom]); */
+    super.dispose();
   }
 }
