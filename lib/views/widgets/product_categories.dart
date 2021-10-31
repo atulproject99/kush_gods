@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kush_gods/contollers/product_controller/product_categories_controller.dart';
+import 'package:kush_gods/models/category.dart';
 
 class ProductCategoriesDesign extends StatefulWidget {
-  final List<String> itemList;
+  final List<Category> itemList;
   static String? sItem;
 
   ProductCategoriesDesign({required this.itemList});
@@ -13,7 +14,7 @@ class ProductCategoriesDesign extends StatefulWidget {
       _ProductCategoriesDesignState();
 }
 
-String selectItem = "All";
+String selectItem = "Video";
 
 class _ProductCategoriesDesignState extends State<ProductCategoriesDesign> {
   _buildList() {
@@ -26,20 +27,21 @@ class _ProductCategoriesDesignState extends State<ProductCategoriesDesign> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
             label: Text(
-              item,
+              item.categoryname!,
               style: TextStyle(
                   color: ProductCategoriesDesign.sItem != null
-                      ? ProductCategoriesDesign.sItem == item
+                      ? ProductCategoriesDesign.sItem == item.categoryname
                           ? Colors.white
                           : Colors.black
-                      : selectItem == item
+                      : selectItem == item.categoryname
                           ? Colors.white
                           : Colors.black),
             ),
             selectedColor: Colors.black,
             padding: const EdgeInsets.all(10),
             //disabledColor: AppColor.backgroundColor,
-            backgroundColor: Colors.white,
+            backgroundColor:
+                selectItem != item.categoryname ? Colors.white : Colors.black,
             selected: ProductCategoriesDesign.sItem != null
                 ? ProductCategoriesDesign.sItem == item
                 : selectItem == item,
@@ -48,9 +50,9 @@ class _ProductCategoriesDesignState extends State<ProductCategoriesDesign> {
                 ProductCategoriesDesign.sItem = null;
               }
               setState(() {
-                selectItem = item;
+                selectItem = item.categoryname!;
                 Get.find<ProductCategoriesController>()
-                    .selectedCategories(item);
+                    .selectedCategories(item.categoryname!);
 
                 print(selectItem);
               });

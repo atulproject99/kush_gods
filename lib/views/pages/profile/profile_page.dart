@@ -5,6 +5,9 @@ import 'package:get/get.dart';
 import 'package:kush_gods/consts/app_color.dart';
 import 'package:kush_gods/contollers/profile_controller/profile_controller.dart';
 import 'package:kush_gods/utils/routes_pages/pages_name.dart';
+import 'package:kush_gods/utils/routes_pages/routes_pages.dart';
+import 'package:kush_gods/views/widgets/app_button.dart';
+import 'package:kush_gods/views/widgets/logout_dialog.dart';
 import 'package:kush_gods/views/widgets/profile_card.dart';
 
 class ProfilePage extends GetView<ProfileController> {
@@ -12,11 +15,12 @@ class ProfilePage extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back_ios),
-        centerTitle: true,
-        title: const Text(
-          "Profiles ",
+        leading: const Icon(
+          Icons.arrow_back_ios,
+          size: 25,
         ),
+        centerTitle: true,
+        title: const Text("Profiles ", style: TextStyle(fontSize: 16)),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -38,7 +42,7 @@ class ProfilePage extends GetView<ProfileController> {
                             height: 75,
                             decoration: BoxDecoration(
                                 image: const DecorationImage(
-                                  image: AssetImage("assets/images/news1.png"),
+                                  image: AssetImage("assets/images/user.png"),
                                   fit: BoxFit.fill,
                                 ),
                                 borderRadius: BorderRadius.circular(10)),
@@ -108,34 +112,40 @@ class ProfilePage extends GetView<ProfileController> {
                                   Expanded(child: Container()),
                                   Expanded(
                                     flex: 0,
-                                    child: Card(
-                                      color: Colors.black,
-                                      child: Container(
-                                        padding: EdgeInsets.only(
-                                            top: 5,
-                                            bottom: 5,
-                                            left: 10,
-                                            right: 10),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Image.asset(
-                                              "assets/icon/edit.png",
-                                              width: 20,
-                                              height: 20,
-                                              color: Colors.white,
-                                            ),
-                                            SizedBox(
-                                              width: 5,
-                                            ),
-                                            Text(
-                                              "Edit",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold),
-                                            )
-                                          ],
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Get.toNamed(MyPagesName.editProfile);
+                                      },
+                                      child: Card(
+                                        color: Colors.black,
+                                        child: Container(
+                                          padding: EdgeInsets.only(
+                                              top: 5,
+                                              bottom: 5,
+                                              left: 10,
+                                              right: 10),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Image.asset(
+                                                "assets/icon/edit.png",
+                                                width: 20,
+                                                height: 20,
+                                                color: Colors.white,
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "Edit",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              )
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -195,12 +205,46 @@ class ProfilePage extends GetView<ProfileController> {
                     .profileCard,
               ),
             ),
-            GestureDetector(
+            InkWell(
                 onTap: () {
-                  print("dsd");
+                  /* Get.dialog(LogoutPopup(context: context).dialog,
+                      useSafeArea: true); */
+                  Get.defaultDialog(
+                      title: "ALERT",
+                      titleStyle: TextStyle(fontSize: 16),
+                      middleText: "Are you Sure want to Logout",
+                      middleTextStyle: TextStyle(fontSize: 12),
+                      cancel: ElevatedButton(
+                          style:
+                              ElevatedButton.styleFrom(primary: Colors.white),
+                          onPressed: () {
+                            Get.back();
+                          },
+                          child: Text("Cancel",
+                              style: TextStyle(
+                                color: Colors.black,
+                              ))),
+                      confirm: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: Colors.black, elevation: 5),
+                          onPressed: () {
+                            Get.back();
+                          },
+                          child: Text("Logout",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ))),
+                      contentPadding: EdgeInsets.all(20));
+
+                  /* cancel: AppButton(context: context, buttonTitle: "Cancel")
+                          .myButton,
+                      confirm:
+                          AppButton(context: context, buttonTitle: "Logout")
+                              .myButton); */
                 },
-                child:
-                    ProfileCard(context: context, title: "Logout").profileCard),
+                child: Container(
+                    child: ProfileCard(context: context, title: "Logout")
+                        .profileCard)),
           ],
         ),
       ),

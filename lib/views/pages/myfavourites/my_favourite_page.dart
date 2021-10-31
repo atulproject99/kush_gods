@@ -19,6 +19,7 @@ class MyFavouritePage extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           "My Faourites ",
+          style: TextStyle(fontSize: 16),
         ),
       ),
       body: Center(

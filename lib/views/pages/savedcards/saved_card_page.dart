@@ -19,6 +19,7 @@ class SavedCardPage extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           "Saved Cards ",
+          style: TextStyle(fontSize: 16),
         ),
       ),
       body: Center(

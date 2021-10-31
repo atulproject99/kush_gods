@@ -3,6 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:kush_gods/contollers/product_controller/prodcut_controller.dart';
 import 'package:kush_gods/contollers/product_controller/product_categories_controller.dart';
+import 'package:kush_gods/utils/routes_pages/pages_name.dart';
 
 import 'package:kush_gods/views/widgets/product_categories.dart';
 import 'package:kush_gods/views/widgets/product_design.dart';
@@ -61,10 +62,17 @@ class ProductPage extends StatelessWidget {
                           physics: const NeverScrollableScrollPhysics(),
                           itemCount: controller.productList.length,
                           itemBuilder: (BuildContext context, int index) =>
-                              ProductDesign(
-                                      context: context,
-                                      product: controller.productList[index])
-                                  .productDesign,
+                              GestureDetector(
+                            onTap: () {
+//controller.loadProductDetails(controller.productList[index]);
+                              Get.toNamed(MyPagesName.productFullView,
+                                  arguments: controller.productList[index].id);
+                            },
+                            child: ProductDesign(
+                                    context: context,
+                                    product: controller.productList[index])
+                                .productDesign,
+                          ),
                           staggeredTileBuilder: (int index) =>
                               StaggeredTile.fit(2),
                           mainAxisSpacing: 9.0,

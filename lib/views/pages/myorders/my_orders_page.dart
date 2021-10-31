@@ -19,6 +19,7 @@ class MyOrdersPage extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           "My Orders ",
+          style: TextStyle(fontSize: 16),
         ),
       ),
       body: Center(

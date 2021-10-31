@@ -1,5 +1,5 @@
-import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
-import 'package:circular_bottom_navigation/tab_item.dart';
+//import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
+//import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kush_gods/consts/app_color.dart';
@@ -9,6 +9,8 @@ import 'package:kush_gods/views/pages/news/news_page.dart';
 import 'package:kush_gods/views/pages/product/product_page.dart';
 import 'package:kush_gods/views/pages/profile/profile_page.dart';
 import 'package:kush_gods/views/pages/search/search_page.dart';
+import 'package:kush_gods/views/widgets/bottom_navigation/circular_bottom_navigation.dart';
+import 'package:kush_gods/views/widgets/bottom_navigation/tab_item.dart';
 
 class DashboardPage extends GetView<DashboardController> {
   @override
@@ -46,13 +48,13 @@ class DashboardPage extends GetView<DashboardController> {
         ),
       ), */
         bottomNavigationBar: Obx(
-          () => CircularBottomNavigation(
-            [
-              TabItem(Icons.perm_media, "", AppColor.bottomitemColor),
-              TabItem(Icons.category_rounded, "", AppColor.bottomitemColor),
-              TabItem(Icons.search, "", AppColor.bottomitemColor),
-              TabItem(Icons.shopping_cart, "", AppColor.bottomitemColor),
-              TabItem(Icons.person, "", AppColor.bottomitemColor),
+          () => MyCircularBottomNavigation(
+            tabItems: [
+              TabItem("assets/icon/ne.png", "", AppColor.bottomitemColor),
+              TabItem("assets/icon/p.png", "", AppColor.bottomitemColor),
+              TabItem('assets/icon/search.png', "", AppColor.bottomitemColor),
+              TabItem('assets/icon/cart.png', "", AppColor.bottomitemColor),
+              TabItem("assets/icon/account.png", "", AppColor.bottomitemColor),
             ],
             controller: controller.navigationController,
             selectedPos: controller.currentIndex.value,

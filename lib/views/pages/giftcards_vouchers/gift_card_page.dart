@@ -19,6 +19,7 @@ class GiftCardPage extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           "Gift Cards & Vouchers ",
+          style: TextStyle(fontSize: 16),
         ),
       ),
       body: Center(

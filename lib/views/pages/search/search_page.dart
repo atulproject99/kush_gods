@@ -10,13 +10,15 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: Icon(Icons.arrow_back_ios),
-          centerTitle: true,
-          title: const Text(
-            "Search",
+          leading: Icon(
+            Icons.arrow_back_ios,
+            size: 20,
           ),
+          centerTitle: true,
+          title: const Text("Search", style: TextStyle(fontSize: 16)),
         ),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -58,13 +60,16 @@ class SearchPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            GetBuilder<SearchController>(builder: (controller) {
-              return Container(
-                child: SearchItemDesign(
-                  itemList: controller.categories,
-                ),
-              );
-            }),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: GetBuilder<SearchController>(builder: (controller) {
+                return Container(
+                  child: SearchItemDesign(
+                    itemList: controller.categories,
+                  ),
+                );
+              }),
+            ),
           ],
         ));
   }

@@ -10,7 +10,7 @@ class ProfileCard {
 
   Widget get profileCard => Container(
         width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
+        padding: EdgeInsets.only(left: 15, right: 15, top: 20),
         child: Column(
           children: [
             Container(
