@@ -28,7 +28,8 @@ class ProductDesign {
                     CachedNetworkImage(
                   height: 250,
                   width: 300,
-                  imageUrl: AppConstraints.PRODUCT_URL + product.images!,
+                  imageUrl:
+                      AppConstraints.PRODUCT_URL + product.img![0].toString(),
                   fit: BoxFit.fill,
                   placeholder: (context, value) => Shimmer.fromColors(
                     child: Card(

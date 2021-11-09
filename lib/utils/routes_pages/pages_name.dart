@@ -9,4 +9,5 @@ class MyPagesName {
   static const String editProfile = "/editProfile";
   static const String newsfullpage = "/newsfullpage";
   static const String productFullView = "/productFullViewPage";
+  static const String checkoutPage = "/checkoutPage";
 }

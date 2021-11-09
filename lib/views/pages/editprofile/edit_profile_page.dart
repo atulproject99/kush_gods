@@ -170,8 +170,7 @@ class EditProfilePage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child:
-                    AppButton(context: context, buttonTitle: "Save").myButton,
+                child: AppButton(buttonTitle: "Save").myButton,
               )
             ],
           ),

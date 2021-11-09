@@ -7,7 +7,7 @@ class AddressCardDesign {
 
   Widget get addressCardDesign => Container(
         width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.only(left: 15, right: 15, top: 20),
+        padding: EdgeInsets.only(left: 10, right: 10, top: 20),
         child: Column(
           children: [
             Container(

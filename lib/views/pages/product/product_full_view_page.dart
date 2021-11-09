@@ -11,6 +11,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:kush_gods/consts/app_color.dart';
 import 'package:kush_gods/contollers/product_controller/prodcut_controller.dart';
+import 'package:kush_gods/utils/routes_pages/pages_name.dart';
 import 'package:kush_gods/views/widgets/app_button.dart';
 import 'package:kush_gods/views/widgets/product_design.dart';
 
@@ -21,7 +22,7 @@ class ProductFullViewPage extends StatefulWidget {
 
 class _ProductFullViewPageState extends State<ProductFullViewPage> {
   var controller = Get.put(ProductController());
-    
+
   @override
   void initState() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -415,9 +416,71 @@ class _ProductFullViewPageState extends State<ProductFullViewPage> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 60,
-              child: AppButton(context: context, buttonTitle: "Add To Cart")
-                  .myButton,
+              height: 58,
+              color: Colors.white,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      width: 50,
+                      height: 55,
+                      margin: EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Expanded(
+                              child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Obx(() => Text(
+                                  "${controller.product.value.quant.value}")),
+                            ],
+                          )),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    controller
+                                        .increment(controller.product.value);
+                                  },
+                                  child: Icon(
+                                    Icons.arrow_drop_up_sharp,
+                                    size: 25,
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    controller
+                                        .decrement(controller.product.value);
+                                  },
+                                  child: Icon(
+                                    Icons.arrow_drop_down_sharp,
+                                    size: 25,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.toNamed(MyPagesName.checkoutPage);
+                      },
+                      child: AppButton(buttonTitle: "Add To Cart").myButton,
+                    ),
+                  ),
+                ],
+              ),
             ),
           )
         ],

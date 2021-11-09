@@ -168,6 +168,7 @@ class NewsPage extends GetView<NewsController> {
                                     scrollDirection: Axis.horizontal,
                                     viewportFraction: 1,
                                     onPageChanged: (index, reason) {
+                                      print("page no $index");
                                       controller.sliderIndex(index);
                                     }),
                                 items: controller.sliders.map((i) {
@@ -210,11 +211,12 @@ class NewsPage extends GetView<NewsController> {
                                                     CachedNetworkImage(
                                                   imageUrl: AppConstraints
                                                           .BANNER_URL +
-                                                      controller
+                                                      /* controller
                                                           .sliders[controller
                                                               .currentIndex
                                                               .value]
-                                                          .image!,
+                                                          .image!, */
+                                                      i.image!,
                                                   fit: BoxFit.fill,
                                                   placeholder:
                                                       (context, value) =>
@@ -259,8 +261,8 @@ class NewsPage extends GetView<NewsController> {
                                   children: controller.sliders.map((url) {
                                     int index = controller.sliders.indexOf(url);
                                     return Obx(() => Card(
-                                          elevation: 5,
-                                          shadowColor: Colors.black,
+                                          //elevation: 5,
+                                          //       shadowColor: Colors.black,
                                           child: Container(
                                             width: 8.0,
                                             height: 8.0,

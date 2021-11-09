@@ -9,6 +9,8 @@ class ProductCategoriesController extends GetxController {
   var categoriesName = "All".obs;
   var isLoading = true.obs;
 
+  var  selectItem = "Video".obs;
+
   List<Category> categories = <Category>[].obs;
 
   @override

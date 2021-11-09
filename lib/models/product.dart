@@ -1,18 +1,21 @@
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+
 class Product {
-  String ? id;
-  String ? categoryId;
-  String ? name;
-  String ? mrp;
-  String ? discount;
-  String ? price;
-  String ? size;
-  String ? unit;
-  String ? color;
-  String ? quality;
-  String ? quantity;
-  String ? delStatus;
-  String ? date;
-  String ? images;
+  String? id;
+  String? categoryId;
+  String? name;
+  String? mrp;
+  String? discount;
+  String? price;
+  String? size;
+  String? unit;
+  String? color;
+  String? quality;
+  String? quantity;
+  String? delStatus;
+  String? date;
+  String? images;
+  List<dynamic>? img;
 
   Product(
       {this.id,
@@ -28,7 +31,10 @@ class Product {
       this.quantity,
       this.delStatus,
       this.date,
-      this.images});
+      this.images,
+      this.img});
+
+  var quant = 1.obs;
 
   Product.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -45,6 +51,7 @@ class Product {
     delStatus = json['del_status'];
     date = json['date'];
     images = json['images'];
+    img = json['img'] as List<dynamic>;
   }
 
   Map<String, dynamic> toJson() {

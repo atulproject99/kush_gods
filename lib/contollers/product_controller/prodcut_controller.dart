@@ -68,4 +68,16 @@ class ProductController extends GetxController {
       }
     });
   }
+
+  //handle quantity of product
+
+  increment(Product product) {
+    product.quant++;
+  }
+
+  decrement(Product product) {
+    if (product.quant > 1) {
+      product.quant--;
+    }
+  }
 }
